@@ -1,0 +1,19 @@
+/* add css styles here */
+.quiz-start {
+    margin: 18%;
+    text-align: center;
+}
+
+.quiz-start p {
+    font-size: 20px;
+    font-weight: bold;
+}
+
+.start-btn {
+    border-radius: 15px;
+    background-color: purple;
+    color: white;
+    width: 25%;
+    height: 30px;
+    font-size: larger;
+}

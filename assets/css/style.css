@@ -1,10 +1,10 @@
 /* add css styles here */
-.quiz-start {
+.page-content {
     margin: 18%;
     text-align: center;
 }
 
-.quiz-start p {
+.page-content p {
     font-size: 20px;
     font-weight: bold;
 }

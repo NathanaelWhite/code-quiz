@@ -17,3 +17,20 @@
     height: 30px;
     font-size: larger;
 }
+
+.quiz-content {
+    text-align: center;
+    font-size: larger;
+}
+
+.choices {
+    font-size: small;
+    background-color: purple;
+    color: blue;
+}
+
+.quiz-actions {
+    font-size: small;
+    background-color: purple;
+    color: white;
+}

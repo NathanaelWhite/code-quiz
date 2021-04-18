@@ -23,10 +23,10 @@
     font-size: larger;
 }
 
-.choices {
+.choices button {
     font-size: small;
     background-color: purple;
-    color: blue;
+    color:white;
 }
 
 .quiz-actions {

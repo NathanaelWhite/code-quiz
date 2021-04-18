@@ -56,7 +56,7 @@ var questions = [
   },
 ];
 //--------------------------------------------------------------
-
+// var index = 0
 // var game= {
 //     question: ['the sky is blue?','is today a good day?'],
 //     choices: [

@@ -1,20 +1,41 @@
 // create variables
 var pageContentEl = document.querySelector(".page-content");
 var startPage = document.querySelector(".start-screen");
+var startBtn = document.querySelector(".start-game");
 var questionEl = document.querySelector(".question");
 var choicesEl = document.querySelector(".choices");
-var choiceA = document.createElement("button");
-var choiceB = document.createElement("button");
-var choiceC = document.createElement("button");
 var scoreCounter = document.querySelector(".checkscore");
 var score = 0;
-var timeLeft = 180;
+var timerEl = document.querySelector(".timer");
+var timeLeft;
+var gameOver = false;
+
+timerEl.textContent = 0;
+// create a countdown timer that counts down from 180-0
+// timer needs to start at 0 before we click the start button
+// after we click start button timer needs to count down from 180
+// 180 needs to decrement by 1 ever 1000ms
+// once time hits 0 stop timer
+var setTimer = function () {
+  timeLeft = 180;
+  var countdown = setInterval(function () {
+    timerEl.textContent = timeLeft;
+    timeLeft--;
+    if (timeLeft < 0) {
+      clearInterval(countdown);
+    }
+    if (gameOver == true) {
+      clearInterval(countdown);
+    }
+  }, 1000);
+};
 
 var start = function () {
   startPage.style.display = "none";
-  //when user onclicks the #start-btn call the generateQuestion()
-  document.getElementById("#start-btn").onclick = generateQuestion();
+  //call the generateQuestion()
+  generateQuestion();
   // also onclick call the function for time
+  setTimer();
 };
 
 var questionIndex = 0;
@@ -30,30 +51,34 @@ var questions = [
     answer: "Storing number, dates, or other values",
   },
   {
-    questionTitle: "Which built-in method returns the character at the specific index?",
+    questionTitle:
+      "Which built-in method returns the character at the specific index?",
     options: ["charAt()", "characterAt()", "getCharacter()"],
     answer: "charAt()",
   },
   {
-    questionTitle: "Which of the following is correct about features of JavaScript?",
-    options: ["JavaScript is open and cross-platform", "Javascript is useless", "JavaScript can't manipulate the DOM"],
+    questionTitle:
+      "Which of the following is correct about features of JavaScript?",
+    options: [
+      "JavaScript is open and cross-platform",
+      "Javascript is useless",
+      "JavaScript can't manipulate the DOM",
+    ],
     answer: "JavaScript is open and cross-platform",
   },
   {
-    questionTitle: "Which of the following function of String object combines the text of two strings ans returns a new one?",
+    questionTitle:
+      "Which of the following function of String object combines the text of two strings ans returns a new one?",
     options: ["addEm()", "appendThis()", "concat()"],
     answer: "concat()",
   },
   {
-    questionTitle: "In JavaScript, what method is used to create an element in html?",
+    questionTitle:
+      "In JavaScript, what method is used to create an element in html?",
     options: [".htmlEl()", "html.createElement()", "document.creatElement()"],
     answer: "document.creatElement()",
   },
 ];
-
-var timeInterval =  {
-  
-}
 
 function generateQuestion() {
   // hide start screen
@@ -81,11 +106,28 @@ var checkAnswer = function (event) {
     score++;
     scoreCounter.textContent = "Your score: " + score;
   } else {
-    console.log("wrong!");
+    timeLeft = timeLeft - 30;
   }
-
-  questionIndex++;
+  
+  if (questionIndex == 4) {
+    gameOver = true;
+    endGame();
+  } 
+  if (questions.length > questionIndex + 1) {
+    questionIndex++;    
+  }
+  
+  console.log(questionIndex);
   generateQuestion();
 };
 
-pageContentEl.addEventListener("click", generateQuestion);
+var endGame = function() {
+  questionEl.style.display = "none";
+  choicesEl.style.display = "none";
+  scoreCounter.textContent = "Your final score is " + score + "!";
+
+  // add form element to checkscore
+  document.createElement("form");
+}
+
+startBtn.addEventListener("click", start);

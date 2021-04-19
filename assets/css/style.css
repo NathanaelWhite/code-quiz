@@ -23,7 +23,15 @@
     font-size: larger;
 }
 
+.choices {
+    margin: 10px;
+}
+
 .choices button {
+    padding: 10px;
+    display: block;
+    margin: 5px auto;
+    border-radius: 15px;
     font-size: small;
     background-color: purple;
     color:white;
@@ -34,3 +42,9 @@
     background-color: purple;
     color: white;
 }
+
+.question {
+    font-size: 30px;
+    font-weight: bold;
+}
+

@@ -30,28 +30,28 @@ var questions = [
     answer: "Storing number, dates, or other values",
   },
   {
-    questionTitle: "question two",
-    options: ["option A", "option B", "option C"],
-    answer: "option A",
+    questionTitle: "Which built-in method returns the character at the specific index?",
+    options: ["charAt()", "characterAt()", "getCharacter()"],
+    answer: "charAt()",
   },
   {
-    questionTitle: "question three",
-    options: ["option A", "option B", "option C"],
-    answer: "option B",
+    questionTitle: "Which of the following is correct about features of JavaScript?",
+    options: ["JavaScript is open and cross-platform", "Javascript is useless", "JavaScript can't manipulate the DOM"],
+    answer: "JavaScript is open and cross-platform",
   },
   {
-    questionTitle: "question four",
-    options: ["option A", "option B", "option C"],
-    answer: "option C",
+    questionTitle: "Which of the following function of String object combines the text of two strings ans returns a new one?",
+    options: ["addEm()", "appendThis()", "concat()"],
+    answer: "concat()",
   },
   {
-    questionTitle: "question five",
-    options: ["option A", "option B", "option C"],
-    answer: "option C",
+    questionTitle: "In JavaScript, what method is used to create an element in html?",
+    options: [".htmlEl()", "html.createElement()", "document.creatElement()"],
+    answer: "document.creatElement()",
   },
 ];
 
-var timeInterval = {
+var timeInterval =  {
   
 }
 
@@ -79,7 +79,7 @@ var checkAnswer = function (event) {
 
   if (clickedAnswer == questions[questionIndex].answer) {
     score++;
-    scoreCounter.textContent = score;
+    scoreCounter.textContent = "Your score: " + score;
   } else {
     console.log("wrong!");
   }

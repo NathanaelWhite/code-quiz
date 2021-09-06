@@ -23,6 +23,7 @@ var setTimer = function () {
     timeLeft--;
     if (timeLeft < 0) {
       clearInterval(countdown);
+      endGame();
     }
     if (gameOver == true) {
       clearInterval(countdown);
